@@ -2,6 +2,7 @@
 
 An AI-powered security monitoring agent that watches your Linux logs and alerts you to threats in plain English.
 Project: The AI Security Translator
+
 📖 The Simple Explanation (What does this do?)
 The Problem: Computer servers keep detailed diaries of everything that happens (called "logs"). These logs are often millions of lines long and written in complex technical codes. For a human, finding a security threat in these logs is like trying to find a needle in a haystack while blindfolded.
 The Solution: I built an intelligent "security guard" that never sleeps. It reads these complex logs in real-time. When it spots something suspicious—like a hacker trying to guess a password—it doesn't just record it; it translates the technical data into a plain English alert and sends it to me instantly.
