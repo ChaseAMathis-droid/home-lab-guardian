@@ -3,8 +3,8 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_ollama import ChatOllama
 
 from ..parsers import AuthLogEvent
 
@@ -28,10 +28,10 @@ class ThreatAnalyzer:
     def analyze(self, event: AuthLogEvent) -> ThreatAnalysis:
         """
         Analyze a log event and determine if it's a threat
-        
+
         Args:
             event: Parsed log event
-            
+
         Returns:
             ThreatAnalysis with severity, explanation, and recommendations
         """
@@ -104,7 +104,10 @@ IS_THREAT: [yes/no]
                 is_threat = is_threat_str in ["yes", "true", "1"]
 
         return ThreatAnalysis(
-            severity=severity, explanation=explanation, recommendations=recommendations, is_threat=is_threat
+            severity=severity,
+            explanation=explanation,
+            recommendations=recommendations,
+            is_threat=is_threat,
         )
 
     def _fallback_analysis(self, event: AuthLogEvent) -> ThreatAnalysis:

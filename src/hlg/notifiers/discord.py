@@ -1,10 +1,11 @@
 """Discord webhook notifier"""
 
-import requests
 from typing import Optional
 
-from ..parsers import AuthLogEvent
+import requests
+
 from ..ai import ThreatAnalysis
+from ..parsers import AuthLogEvent
 
 
 class DiscordNotifier:
@@ -16,11 +17,11 @@ class DiscordNotifier:
     def send_alert(self, event: AuthLogEvent, analysis: ThreatAnalysis) -> bool:
         """
         Send an alert to Discord
-        
+
         Args:
             event: The log event
             analysis: AI analysis of the event
-            
+
         Returns:
             True if notification was sent successfully
         """
@@ -41,7 +42,11 @@ class DiscordNotifier:
                 {"name": "Service", "value": event.service, "inline": True},
                 {"name": "Username", "value": event.username or "N/A", "inline": True},
                 {"name": "Source IP", "value": event.source_ip or "N/A", "inline": True},
-                {"name": "Timestamp", "value": event.timestamp.strftime("%Y-%m-%d %H:%M:%S"), "inline": True},
+                {
+                    "name": "Timestamp",
+                    "value": event.timestamp.strftime("%Y-%m-%d %H:%M:%S"),
+                    "inline": True,
+                },
                 {
                     "name": "Recommendations",
                     "value": "\n".join(f"• {rec}" for rec in analysis.recommendations[:3]),

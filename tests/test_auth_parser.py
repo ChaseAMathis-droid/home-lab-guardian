@@ -1,9 +1,10 @@
 """Tests for auth.log parser"""
 
-import pytest
 from datetime import datetime
 
-from hlg.parsers.auth import parse_auth_log_line, AuthLogEvent
+import pytest
+
+from hlg.parsers.auth import AuthLogEvent, parse_auth_log_line
 
 
 def test_parse_failed_password():

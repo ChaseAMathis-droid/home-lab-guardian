@@ -60,4 +60,4 @@ jobs:
         run: docker build -t home-lab-guardian:latest .
 
       - name: Test Docker image
-        run: docker run --rm home-lab-guardian:latest --version
+        run: docker run --rm home-lab-guardian:latest hlg --version

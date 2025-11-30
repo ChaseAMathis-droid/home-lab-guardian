@@ -4,11 +4,11 @@ import signal
 import sys
 from typing import Optional
 
+from .ai import ThreatAnalyzer
 from .config import Settings
 from .log_watcher import watch_log_file
-from .parsers import parse_auth_log_line
-from .ai import ThreatAnalyzer
 from .notifiers import DiscordNotifier, SlackNotifier
+from .parsers import parse_auth_log_line
 
 
 class HomeLabGuardian:

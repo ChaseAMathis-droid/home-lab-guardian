@@ -23,7 +23,7 @@ class AuthLogEvent:
 def parse_auth_log_line(line: str) -> Optional[AuthLogEvent]:
     """
     Parse a single auth.log line into a structured event
-    
+
     Example lines:
     - Nov 30 12:34:56 hostname sshd[1234]: Failed password for invalid user admin from 192.168.1.100 port 22 ssh2
     - Nov 30 12:35:01 hostname sudo: username : TTY=pts/0 ; PWD=/home/user ; USER=root ; COMMAND=/usr/bin/apt update

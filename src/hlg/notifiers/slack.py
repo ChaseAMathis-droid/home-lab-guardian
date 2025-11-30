@@ -1,10 +1,11 @@
 """Slack webhook notifier"""
 
-import requests
 from typing import Optional
 
-from ..parsers import AuthLogEvent
+import requests
+
 from ..ai import ThreatAnalysis
+from ..parsers import AuthLogEvent
 
 
 class SlackNotifier:
@@ -16,11 +17,11 @@ class SlackNotifier:
     def send_alert(self, event: AuthLogEvent, analysis: ThreatAnalysis) -> bool:
         """
         Send an alert to Slack
-        
+
         Args:
             event: The log event
             analysis: AI analysis of the event
-            
+
         Returns:
             True if notification was sent successfully
         """

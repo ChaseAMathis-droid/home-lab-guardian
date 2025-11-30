@@ -52,11 +52,11 @@ class LogTailer(FileSystemEventHandler):
 def watch_log_file(log_path: str, poll_interval: int = 1) -> Generator[str, None, None]:
     """
     Watch a log file and yield new lines as they appear
-    
+
     Args:
         log_path: Path to the log file to watch
         poll_interval: How often to check for new lines (seconds)
-        
+
     Yields:
         New lines from the log file
     """

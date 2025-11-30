@@ -1,7 +1,8 @@
 """CLI interface using Click"""
 
-import click
 from pathlib import Path
+
+import click
 
 from .agent import HomeLabGuardian
 from .config import Settings
@@ -20,12 +21,8 @@ def cli():
     type=click.Path(exists=True),
     help="Path to the log file to monitor (default: /var/log/auth.log)",
 )
-@click.option(
-    "--model", type=str, help="Ollama model to use (default: llama3.1:8b)"
-)
-@click.option(
-    "--poll-interval", type=int, help="Polling interval in seconds (default: 1)"
-)
+@click.option("--model", type=str, help="Ollama model to use (default: llama3.1:8b)")
+@click.option("--poll-interval", type=int, help="Polling interval in seconds (default: 1)")
 @click.option("--discord-webhook", type=str, help="Discord webhook URL")
 @click.option("--slack-webhook", type=str, help="Slack webhook URL")
 def run(log_path, model, poll_interval, discord_webhook, slack_webhook):
@@ -64,9 +61,10 @@ def run(log_path, model, poll_interval, discord_webhook, slack_webhook):
 @cli.command()
 def test():
     """Test AI analyzer with a sample event"""
-    from .parsers import AuthLogEvent
-    from .ai import ThreatAnalyzer
     from datetime import datetime
+
+    from .ai import ThreatAnalyzer
+    from .parsers import AuthLogEvent
 
     click.echo("🧪 Testing AI analyzer...")
 
@@ -110,7 +108,9 @@ def config():
     click.echo(f"Poll Interval:    {settings.poll_interval}s")
     click.echo(f"Ollama URL:       {settings.ollama_base_url}")
     click.echo(f"Ollama Model:     {settings.ollama_model}")
-    click.echo(f"Discord Webhook:  {'✓ Configured' if settings.discord_webhook_url else '✗ Not set'}")
+    click.echo(
+        f"Discord Webhook:  {'✓ Configured' if settings.discord_webhook_url else '✗ Not set'}"
+    )
     click.echo(f"Slack Webhook:    {'✓ Configured' if settings.slack_webhook_url else '✗ Not set'}")
     click.echo(f"Alert on Failed:  {settings.alert_on_failed_login}")
     click.echo(f"Alert on Sudo:    {settings.alert_on_sudo}")
