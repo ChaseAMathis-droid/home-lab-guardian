@@ -1,0 +1,20 @@
+[Unit]
+Description=Home Lab Guardian - AI Security Monitoring
+After=network.target ollama.service
+Wants=ollama.service
+
+[Service]
+Type=simple
+User=hlg
+Group=hlg
+WorkingDirectory=/opt/home-lab-guardian
+Environment="PATH=/opt/home-lab-guardian/venv/bin"
+EnvironmentFile=/opt/home-lab-guardian/.env
+ExecStart=/opt/home-lab-guardian/venv/bin/hlg run
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
