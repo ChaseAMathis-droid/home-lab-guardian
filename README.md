@@ -1,6 +1,29 @@
-# 🛡️ Home Lab Guardian
+#🛡️ Home Lab Guardian
 
 An AI-powered security monitoring agent that watches your Linux logs and alerts you to threats in plain English.
+Project: The AI Security Translator
+📖 The Simple Explanation (What does this do?)
+The Problem: Computer servers keep detailed diaries of everything that happens (called "logs"). These logs are often millions of lines long and written in complex technical codes. For a human, finding a security threat in these logs is like trying to find a needle in a haystack while blindfolded.
+The Solution: I built an intelligent "security guard" that never sleeps. It reads these complex logs in real-time. When it spots something suspicious—like a hacker trying to guess a password—it doesn't just record it; it translates the technical data into a plain English alert and sends it to me instantly.
+The Result: Instead of seeing this:
+> Failed password for invalid user admin from 192.168.1.55 port 22 ssh2
+> 
+I get a text message that says:
+> "Alert: Someone is trying to break into your server using the username 'admin'. Location: Local Network."
+> 
+⚙️ How It Works (The Process)
+ * Listen: The agent continuously monitors system files (Linux logs) for activity.
+ * Detect: It uses pattern recognition to filter out "noise" (normal activity) and identify potential threats.
+ * Translate: An integrated AI model analyzes the threat data and rewrites it into a human-readable summary.
+ * Notify: The agent sends the simplified summary to my phone/dashboard immediately.
+🚀 Why I Built This
+ * Accessibility: To make server security understandable for non-experts.
+ * Speed: To reduce the time it takes to respond to a cyber attack.
+ * Automation: To remove the manual labor of reviewing thousands of log lines.
+Tips for your Wiki:
+ * Use Screenshots: If you can, take a screenshot of a "confusing" raw log next to a screenshot of your "simple" AI alert. Visuals explain things faster than text.
+ * Keep the "Why": Recruiters love the "Why I Built This" section because it shows you solve business problems (saving time/reducing complexity).
+Would you like me to write a short "Technical Stack" section to go under this, listing the specific tools (like Python, OpenAI API, Linux) you used?
 
 ## ✨ Features
 
